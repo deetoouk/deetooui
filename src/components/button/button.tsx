@@ -51,12 +51,12 @@ export class Button {
 
   classes() {
     return {
-      [`is-type-${this.isType}`]: true,
-      [`is-size-${this.isSize}`]: true,
-      'is-rounded': this.rounded,
-      'is-disabled': this.disabled,
-      'is-loading': this.isLoading,
-      'is-full-width': this.isFullWidth
+      [`d2-button--is-type-${this.isType}`]: true,
+      [`d2-button--is-size-${this.isSize}`]: true,
+      'd2-button--is-rounded': this.rounded,
+      'd2-button--is-disabled': this.disabled,
+      'd2-button--is-loading': this.isLoading,
+      'd2-button--is-full-width': this.isFullWidth
     };
   }
 
@@ -74,19 +74,15 @@ export class Button {
 
     return (
       <Host class={this.classes()}>
-        <TagType
-          {...attrs}
-          class="d2-button_wrapper"
-          onClick={() => this.handleClick()}
-        >
-          <span class="d2-button-inner">
-            <div class="d2-button__slot-wrapper">
+        <TagType {...attrs} onClick={() => this.handleClick()}>
+          <span class="d2-button__content">
+            <div class="d2-button__slot">
               <slot name="start" />
             </div>
             <div class="d2-button__text">
               <slot />
             </div>
-            <div class="d2-button__slot-wrapper">
+            <div class="d2-button__slot">
               <slot name="end" />
             </div>
           </span>

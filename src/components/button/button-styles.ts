@@ -7,8 +7,8 @@ const styles = (theme): Style => {
   forEach(theme.colors, (color, type) => {
     types = {
       ...types,
-      [`&.is-type-${type}`]: {
-        '& .d2-button_wrapper': {
+      [`&.d2-button--is-type-${type}`]: {
+        '& > *': {
           backgroundColor: color.background,
           color: color.text,
           fill: color.text,

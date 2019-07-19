@@ -1,91 +1,92 @@
 d2-button {
   @apply inline-block;
+
+  & > * {
+    @apply inline-block appearance-none align-middle;
+    @apply outline-none border-none shadow;
+    @apply font-bold rounded-sm antialiased font-sans overflow-hidden;
+    @apply p-0;
+    @apply cursor-pointer;
+    @apply no-underline uppercase;
+
+    // Transition
+    transition-timing-function: ease-out;
+    transition-duration: 0.25s;
+    transition-property: opacity, background-color, color, box-shadow;
+
+    &:hover {
+      @apply shadow-md;
+    }
+  }
 }
 
-.d2-button_wrapper {
-  @apply inline-block appearance-none align-middle;
-  @apply outline-none border-none shadow;
-  @apply font-bold rounded-sm antialiased font-sans overflow-hidden;
-  @apply p-0;
-  @apply cursor-pointer;
-  @apply no-underline uppercase;
-
-  // Transition
-  transition-timing-function: ease-out;
-  transition-duration: 0.25s;
-  transition-property: opacity, background-color, color, box-shadow;
-
-  &:hover {
-    @apply shadow-md;
-  }
-
-  /**
+/**
   * Variants
   */
-  .is-disabled & {
-    @apply opacity-50 cursor-not-allowed;
+.d2-button--is-disabled > * {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.d2-button--is-rounded > * {
+  @apply rounded-full;
+}
+
+/** Button Content **/
+.d2-button__content {
+  @apply flex leading-normal;
+
+  /* Button Sizes */
+  .d2-button--is-size-xs & {
+    height: 1.75rem;
+    font-size: 0.65rem;
   }
 
-  .is-rounded & {
+  .d2-button--is-size-sm & {
+    @apply h-8;
+    font-size: 0.7rem;
+  }
+
+  .d2-button--is-size-lg & {
+    @apply text-sm h-12;
+  }
+
+  .d2-button--is-size-default & {
+    @apply text-xs h-10;
+  }
+
+  .d2-button--is-size-xl & {
+    @apply text-base;
+    height: 3.5rem;
+  }
+
+  .d2-button--is-size-xxl & {
+    @apply text-lg h-16;
+  }
+  /* Button Sizes End*/
+}
+
+.d2-button__text {
+  @apply inline-flex items-center;
+  padding: 0 1.8em;
+
+  .d2-button--is-size-xs & {
+    @apply px-2;
+  }
+}
+
+/**
+* Slots
+**/
+.d2-button__slot {
+  background: rgba(0, 0, 0, 0.15);
+  @apply inline-flex self-stretch items-center;
+  padding: 0 1.4em;
+
+  &:empty {
+    @apply hidden;
+  }
+
+  .d2-button--is-rounded & {
     @apply rounded-full;
-  }
-
-  .d2-button-inner {
-    @apply flex leading-normal;
-
-    /* Button Sizes */
-    .is-size-xs & {
-      height: 1.75rem;
-      font-size: 0.65rem;
-    }
-
-    .is-size-sm & {
-      @apply h-8;
-      font-size: 0.7rem;
-    }
-
-    .is-size-lg & {
-      @apply text-sm h-12;
-    }
-
-    .is-size-default & {
-      @apply text-xs h-10;
-    }
-
-    .is-size-xl & {
-      @apply text-base;
-      height: 3.5rem;
-    }
-
-    .is-size-xxl & {
-      @apply text-lg h-16;
-    }
-    /* Button Sizes End*/
-
-    .d2-button__text {
-      @apply inline-flex items-center;
-      padding: 0 1.8em;
-
-      .is-size-xs & {
-        @apply px-2;
-      }
-    }
-  }
-
-  /**
-  * Slots
-  **/
-  .d2-button__slot-wrapper {
-    background: rgba(0, 0, 0, 0.15);
-    @apply inline-flex self-stretch items-center;
-    padding: 0 1.4em;
-
-    &:empty {
-      @apply hidden;
-    }
-
-    .is-rounded & {
-      @apply rounded-full;
-    }
   }
 }
