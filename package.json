@@ -1,0 +1,44 @@
+{
+  "name": "deetooui",
+  "version": "0.0.1",
+  "description": "Stencil Component Starter",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/deetooui/deetooui.js",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "styles": "npx tailwind build ./src/styles/tailwind.css -o ./src/styles/styles.css",
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll"
+  },
+  "devDependencies": {
+    "@stencil/core": "1.1.7",
+    "@stencil/postcss": "^1.0.1",
+    "@stencil/sass": "^1.0.1",
+    "@types/autoprefixer": "^9.5.0",
+    "@types/jest": "24.0.15",
+    "@types/puppeteer": "1.12.4",
+    "autoprefixer": "^9.6.1",
+    "jest": "24.8.0",
+    "jest-cli": "24.8.0",
+    "puppeteer": "1.17.0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@stencil/state-tunnel": "^1.0.1",
+    "jss": "^9.8.7",
+    "jss-preset-default": "^4.5.0",
+    "lodash": "^4.17.14",
+    "tailwindcss": "^1.0.5"
+  }
+}

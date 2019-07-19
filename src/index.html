@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/463a96ff6c.js"></script>
+
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="/build/deetooui.css" /> -->
+    <script type="module" src="/build/deetooui.esm.js"></script>
+    <script nomodule src="/build/deetooui.js"></script>
+  </head>
+  <body>
+      <d2-setup>
+        <d2-theme>
+            <h2>Types</h2>
+            <d2-button is-type="primary">Primary Button</d2-button>
+            <d2-button is-type="secondary">Secondary Button</d2-button>
+            <d2-button is-type="tertiary">Tertiary Button</d2-button>
+            <d2-button is-type="quaternary">Quaternary Button</d2-button>
+            <d2-button is-type="danger">Danger Button</d2-button>
+            <d2-button is-type="success">Success Button</d2-button>
+            <d2-button is-type="info">Info Button</d2-button>
+            <d2-button is-type="warning">Warning Button</d2-button>
+            <d2-button is-type="dark">Dark Button</d2-button>
+            <d2-button is-type="light">Light Button</d2-button>
+
+            <d2-theme name="materialize">
+                <h2>Materialize Types</h2>
+                <d2-button is-type="primary">Primary Button</d2-button>
+                <d2-button is-type="secondary">Secondary Button</d2-button>
+                <d2-button is-type="tertiary">Tertiary Button</d2-button>
+                <d2-button is-type="quaternary">Quaternary Button</d2-button>
+                <d2-button is-type="danger">Danger Button</d2-button>
+                <d2-button is-type="success">Success Button</d2-button>
+                <d2-button is-type="info">Info Button</d2-button>
+                <d2-button is-type="warning">Warning Button</d2-button>
+                <d2-button is-type="dark">Dark Button</d2-button>
+                <d2-button is-type="light">Light Button</d2-button>
+            </d2-theme>
+            
+            <h2>Sizes</h2>
+            <d2-button is-size="xs">Extra Small Button</d2-button>
+            <d2-button is-size="sm">Small Button</d2-button>
+            <d2-button>Default Button</d2-button>
+            <d2-button is-size="lg">Large Button</d2-button>
+            <d2-button is-size="xl">Extra Large Button</d2-button>
+
+            <h2>Variants</h2>
+            <d2-button disabled>Warning Button</d2-button>
+            <d2-button rounded>
+                <span slot="start">
+                    OK
+                </span>
+                Text Button
+            </d2-button>
+            <d2-button rounded>Warning Button</d2-button>
+            <d2-button>
+                <span slot="start">
+                <i class="fas fa-save" ></i>
+                </span>
+                Slot Start
+            </d2-button>
+            <d2-button>
+                <span slot="end">
+                <i class="fas fa-save" slot="end"></i>
+                </span>
+                Slot End
+            </d2-button>
+            </d2-button>
+            <d2-button rounded>
+                <i class="fas fa-save" slot="start"></i>
+                Warning Button
+            </d2-button>
+            </d2-button>
+            <d2-button href="#" rounded>
+                <i class="fas fa-save" slot="start"></i>
+                A Tag
+            </d2-button>
+        </d2-theme>
+    </d2-setup>
+  </body>
+</html>
