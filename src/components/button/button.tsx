@@ -1,4 +1,4 @@
-import { Component, Prop, Watch, h } from '@stencil/core';
+import { Component, Prop, Watch, Host, h } from '@stencil/core';
 import { Sizes, Types } from './button.config';
 import { validateEnumAttribute } from '../../utils/utils';
 
@@ -51,7 +51,6 @@ export class Button {
 
   classes() {
     return {
-      'd2-button': true,
       [`is-type-${this.isType}`]: true,
       [`is-size-${this.isSize}`]: true,
       'is-rounded': this.rounded,
@@ -73,24 +72,26 @@ export class Button {
         ? { type: this.type || 'button', disabled: this.disabled }
         : { href: this.href, target: this.target, download: this.download };
 
-    return [
-      <TagType
-        {...attrs}
-        class={this.classes()}
-        onClick={() => this.handleClick()}
-      >
-        <span class="d2-button-inner">
-          <div class="d2-button__slot-wrapper">
-            <slot name="start" />
-          </div>
-          <div class="d2-button__text">
-            <slot />
-          </div>
-          <div class="d2-button__slot-wrapper">
-            <slot name="end" />
-          </div>
-        </span>
-      </TagType>
-    ];
+    return (
+      <Host class={this.classes()}>
+        <TagType
+          {...attrs}
+          class="d2-button_wrapper"
+          onClick={() => this.handleClick()}
+        >
+          <span class="d2-button-inner">
+            <div class="d2-button__slot-wrapper">
+              <slot name="start" />
+            </div>
+            <div class="d2-button__text">
+              <slot />
+            </div>
+            <div class="d2-button__slot-wrapper">
+              <slot name="end" />
+            </div>
+          </span>
+        </TagType>
+      </Host>
+    );
   }
 }

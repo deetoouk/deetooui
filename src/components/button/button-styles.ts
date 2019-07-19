@@ -8,18 +8,20 @@ const styles = (theme): Style => {
     types = {
       ...types,
       [`&.is-type-${type}`]: {
-        backgroundColor: color.background,
-        color: color.text,
-        fill: color.text,
-        '&:hover': {
-          backgroundColor: color.hover
+        '& .d2-button_wrapper': {
+          backgroundColor: color.background,
+          color: color.text,
+          fill: color.text,
+          '&:hover': {
+            backgroundColor: color.hover
+          }
         }
       }
     };
   });
 
   return {
-    '& .d2-button': types
+    '& d2-button': types
   };
 };
 
