@@ -74,7 +74,11 @@ export class Button {
 
     return (
       <Host class={this.classes()}>
-        <TagType {...attrs} onClick={() => this.handleClick()}>
+        <TagType
+          class="d2-button__button"
+          {...attrs}
+          onClick={() => this.handleClick()}
+        >
           <span class="d2-button__content">
             <div class="d2-button__slot">
               <slot name="start" />

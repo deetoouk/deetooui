@@ -7,7 +7,8 @@ import preset from 'jss-preset-default';
 import some from 'lodash/some';
 
 // Import Styles
-import ButtonStyles from '../button/button-styles';
+import { GlobalStyles as ThemeGlobalStyles } from '../theme/theme-styles';
+import { ThemeStyles as ButtonThemeStyles } from '../button/button-styles';
 
 jss.setup(preset());
 
@@ -34,29 +35,25 @@ export class Setup {
   }
 
   componentWillLoad() {
-    let styles = {};
     for (let theme of this.myThemes) {
-      styles = {
-        ...styles,
-        ...this.generateAndAttachThemeStyles(theme)
-      };
+      const sheet = jss.createStyleSheet(
+        {
+          '@global': this.generateAndAttachThemeStyles(theme)
+        },
+        { meta: theme.name }
+      );
+
+      sheet.attach();
     }
-
-    const sheet = jss.createStyleSheet({
-      '@global': styles
-    });
-
-    sheet.attach();
   }
 
   generateAndAttachThemeStyles(theme) {
-    const styles = {
+    return {
+      ...ThemeGlobalStyles(theme),
       [`.d2-theme-${theme.name}`]: {
-        ...ButtonStyles(theme)
+        ...ButtonThemeStyles(theme)
       }
     };
-
-    return styles;
   }
 
   render() {

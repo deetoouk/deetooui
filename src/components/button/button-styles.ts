@@ -1,19 +1,22 @@
 import { Style } from 'jss';
 import forEach from 'lodash/forEach';
 
-const styles = (theme): Style => {
+export const ThemeStyles = (theme): Style => {
+  const { name, colors } = theme;
   let types = {};
 
-  forEach(theme.colors, (color, type) => {
+  forEach(colors, (_, type) => {
+    let prefix = `--d2-${name}-${type}`;
+
     types = {
       ...types,
       [`&.d2-button--is-type-${type}`]: {
-        '& > *': {
-          backgroundColor: color.background,
-          color: color.text,
-          fill: color.text,
-          '&:hover': {
-            backgroundColor: color.hover
+        '& .d2-button__button': {
+          backgroundColor: `var(${prefix}-background-color)`,
+          color: `var(${prefix}-text-color)`,
+          fill: `var(${prefix}-text-color)`,
+          '&:hover:not(:active)': {
+            backgroundColor: `var(${prefix}-hover-color)`
           }
         }
       }
@@ -24,5 +27,3 @@ const styles = (theme): Style => {
     '& d2-button': types
   };
 };
-
-export default styles;

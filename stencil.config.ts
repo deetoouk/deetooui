@@ -6,7 +6,9 @@ export const config: Config = {
   namespace: 'deetooui',
   // globalStyle: 'src/global/tailwind.css',
   plugins: [
-    sass(),
+    sass({
+      injectGlobalPaths: ['src/global/variables.scss', 'src/global/mixins.scss']
+    }),
     postcss({
       plugins: [require('tailwindcss'), require('autoprefixer')]
     })

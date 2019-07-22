@@ -1,0 +1,64 @@
+@mixin unselectable {
+  @apply select-none;
+  -webkit-touch-callout: none;
+}
+
+@mixin smoothing {
+  @apply antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@mixin inactive {
+  touch-action: none;
+  @apply pointer-events-none;
+}
+
+@mixin disabled {
+  @apply cursor-not-allowed outline-none opacity-50;
+}
+
+@mixin control {
+  @apply appearance-none shadow-none;
+  @apply border-0 m-0 p-0 inline-flex relative;
+  @apply h-auto items-center justify-start align-middle;
+
+  // Transition
+  transition-timing-function: ease-out;
+  transition-duration: 0.25s;
+  transition-property: opacity, background-color, color, box-shadow;
+
+  &[disabled],
+  &[readonly] {
+    @include disabled;
+  }
+}
+
+@mixin nooutline {
+  &:focus,
+  &.is-focused,
+  &:active,
+  &.is-active {
+    @apply outline-none;
+  }
+
+  &::-moz-focus-inner {
+    @apply outline-none border-0;
+  }
+}
+
+@mixin reset-text {
+  // We deliberately do NOT reset font-size or word-wrap.
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-break: auto;
+  line-height: 1.15;
+  text-align: left; // Fallback for where `start` is not supported
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  white-space: normal;
+  word-break: normal;
+  word-spacing: normal;
+}
