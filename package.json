@@ -38,7 +38,7 @@
     "@stencil/state-tunnel": "^1.0.1",
     "jss": "^9.8.7",
     "jss-preset-default": "^4.5.0",
-    "lodash": "^4.17.14",
+    "lodash": "^4.17.21",
     "tailwindcss": "^1.0.5"
   }
 }
